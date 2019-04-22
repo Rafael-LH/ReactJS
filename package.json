@@ -1,0 +1,40 @@
+{
+  "name": "reactjs",
+  "version": "1.0.0",
+  "description": "React 2019",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "webpack -p -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafael-LH/ReactJS.git"
+  },
+  "keywords": [
+    "WebPack",
+    "ReactJS",
+    "Sass"
+  ],
+  "author": "Rafael Lopez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rafael-LH/ReactJS/issues"
+  },
+  "homepage": "https://github.com/Rafael-LH/ReactJS#readme",
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/plugin-proposal-class-properties": "7.4.0",
+    "@babel/preset-env": "7.4.3",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.0.5",
+    "css-loader": "2.1.1",
+    "sass-loader": "7.1.0",
+    "url-loader": "^1.1.2",
+    "webpack": "4.30.0",
+    "webpack-cli": "3.3.1"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
+}
