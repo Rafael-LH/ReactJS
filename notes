@@ -29,3 +29,8 @@ Para identificarlos debes hacerte las siguientes preguntas:
 ¿Qué elementos se repiten? Estos son los elementos en una lista o los que comparten aspecto visual y su funcionalidad
 ¿Qué elementos cumplen una función muy específica? Estos sirven para encapsular la lógica y permiten juntar muchos comportamientos y aspectos visuales en un solo lugar.
 Identificar componentes es una habilidad esencial para poder desarrollar aplicaciones de React.
+
+
+***************************¿Que son los Props?***************************
+Los props(properties) son propiedades de nuestros componentes las cuales les podemos enviar
+para que sean utilizadas. tambien se dice que es una variable de la clase.

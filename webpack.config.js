@@ -1,8 +1,22 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+module.exports = env => {
 
-module.exports = {
-        mode: 'development',
+    let mode = (env.NODE_ENV === 'production') ? 'production' : 'development';
+    let plugins = []
+    
+    if(mode === 'production'){
+        plugins = [
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].css'
+            })
+        ]
+    }
+
+    return{
+
+        mode: mode,
         entry: {
             index: path.resolve(__dirname, './src/entries/index.js')
         },
@@ -29,12 +43,24 @@ module.exports = {
 
                 // URL loader
                 {
-                    test: /\.(jpeg|png|jpg|svg|gif)$/,
+                    test: /\.(jpeg|png|jpg|svg|gif)$/i,
                     use:{
-                        loader: 'url-loader'
+                        loader: 'url-loader',
                     }
+                },
+
+                //Sass loader
+                {
+                    test: /\.scss$/,
+                    use:[
+                        mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'sass-loader'   
+                    ]
                 }
 
             ]
-        }
+        },
+        plugins
+    }
 }
