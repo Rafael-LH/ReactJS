@@ -1,14 +1,15 @@
 import React,{Component} from 'react'
-import logo from '../../images/badge-header.svg'
-import avatar from '../../images/avatar.png'
+import logo from '../images/badge-header.svg'
+import avatar from '../images/avatar.png'
 
-    export default class BadgeContainer extends Component{
+    export default class Badge extends Component{
             render(){
 
-                let {name,lastName} = this.props.data
+                let {firstName,lastName, jobTitle, github} = this.props.data
 
                 return(
                     <div className="Badge">
+
                         <div className="Badge__header">
                              <img src={logo} alt="Logo de la conferencia" />
                         </div>
@@ -19,15 +20,17 @@ import avatar from '../../images/avatar.png'
                                 alt="Avatar"
                             />
                             <h1>
-                                {name} <br /> {lastName}
+                                {firstName} <br /> {lastName}
                             </h1>
                         </div>
                         <div className="Badge__section-info">
-                            <h3>Frontend Engineer</h3>
+                            <h3>{jobTitle}</h3>
                             <div>@rafael</div>
                         </div>
-                        <div className="Badge__footer">#platziconf</div>
-                  </div>
+                        <div className="Badge__footer">
+                            <a href={github} target="__blank">My projects in GitHub</a>
+                        </div>
+                    </div>
                 )
             }
     }
