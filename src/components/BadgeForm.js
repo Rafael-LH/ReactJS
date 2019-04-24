@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import BadgeNew from '../pages/BadgeNew';
 
 
     export default class BadgeForm extends Component{
@@ -13,27 +14,35 @@ import React,{Component} from 'react'
         }    */
 
         //tambien lo podemos declarar de esta manera
-          state = {} 
+        //   state = {} 
 
-        handleChange = e => {
-            this.setState({
-                [e.target.name]: e.target.value //aqui nos traemos el valor del name el cual esta haciendo cambios/ingresando datos en el formulario
-            })
-        }    
+        // handleChange = e => {
+        //     this.setState({
+        //         [e.target.name]: e.target.value //aqui nos traemos el valor del name el cual esta haciendo cambios/ingresando datos en el formulario
+        //     })
+        // }    
         handleClick = e => {
             e.preventDefault()
-            let validaString = /^([a-z]+\s?)*$/i
-            let {firstName, lastName} = this.state
 
-            if(!validaString.test(firstName) || !validaString.test(lastName)){
-                   console.log('En los campos de fist name y las name, solo pudes ingresar caracteres')
-                   return false; 
-            }else{
-                console.log(`Registro realizado correctamente. Los valores son los siguientes`)
-                console.log(this.state)
-            }
+            // let validaString = /^([a-z]+\s?)*$/i
+            // let {firstName, lastName} = this.state
+
+            // if(!validaString.test(firstName) || !validaString.test(lastName)){
+            //        console.log('En los campos de fist name y las name, solo pudes ingresar caracteres')
+            //        return false; 
+            // }else{
+            //     console.log(`Registro realizado correctamente. Los valores son los siguientes`)
+            //     console.log(this.state)
+            // }
         }
             render(){
+                
+                // esto se le llama componentes controlados, ya que los valores me los manda mi componente BadgeNew
+                // de ese componente estoy recibiendo todo
+                
+                let {onChange, handleClick} = this.props
+                let {firstName, lastName, email, jobTitle, twitter} = this.props.formValues
+
                 return(
                     <div>
                         <h1>New Attendant</h1>
@@ -41,59 +50,59 @@ import React,{Component} from 'react'
                             <div class="form-group">
                                 <label>First Name</label>
                                 <input 
-                                    onChange={this.handleChange}
+                                    onChange={onChange}
                                     type="text"
                                     className="form-control"
                                     name="firstName"
-                                    value={this.state.firstName}
+                                    value={firstName}
                                     placeholder="First Name" />
                             </div>
 
                             <div class="form-group">
                                 <label>Last Name</label>
                                 <input 
-                                    onChange={this.handleChange}
+                                    onChange={onChange}
                                     type="text"
                                     className="form-control"
                                     name="lastName"
-                                    value={this.state.lastName}
+                                    value={lastName}
                                     placeholder="Last Name" />
                             </div>
 
                             <div class="form-group">
                                 <label>Email</label>
                                 <input 
-                                    onChange={this.handleChange}
+                                    onChange={onChange}
                                     type="email"
                                     className="form-control"
                                     name="email"
-                                    value={this.state.email}
+                                    value={email}
                                     placeholder="Email" />
                             </div>
                             
                             <div class="form-group">
                                 <label>Job title</label>
                                 <input 
-                                    onChange={this.handleChange}
+                                    onChange={onChange}
                                     type="text"
                                     className="form-control"
                                     name="jobTitle"
-                                    value={this.state.jobTitle}
+                                    value={jobTitle}
                                     placeholder="Job title" />
                             </div>
 
                             <div class="form-group">
                                 <label>Twitter</label>
                                 <input 
-                                    onChange={this.handleChange}
+                                    onChange={onChange}
                                     type="text"
                                     className="form-control"
                                     name="twitter"
-                                    value={this.state.twitter}
+                                    value={twitter}
                                     placeholder="Twitter" />
                             </div>
 
-                            <button onClick={this.handleClick} className="btn btn-info">Save</button>
+                            <button onClick={handleClick} className="btn btn-info">Save</button>
                         </form>
                     </div>
                 )

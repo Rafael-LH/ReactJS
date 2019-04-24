@@ -5,7 +5,7 @@ import avatar from '../images/avatar.png'
     export default class Badge extends Component{
             render(){
 
-                let {firstName,lastName, jobTitle, github} = this.props.data
+                let {firstName,lastName, jobTitle, twitter, email, github} = this.props.data
 
                 return(
                     <div className="Badge">
@@ -25,7 +25,8 @@ import avatar from '../images/avatar.png'
                         </div>
                         <div className="Badge__section-info">
                             <h3>{jobTitle}</h3>
-                            <div>@rafael</div>
+                            <div>{twitter}</div>
+                            <div>Email: {email}</div>
                         </div>
                         <div className="Badge__footer">
                             <a href={github} target="__blank">My projects in GitHub</a>
