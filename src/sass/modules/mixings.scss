@@ -1,0 +1,5 @@
+@mixin box-shadow($top, $right, $button, $left){
+    -webkit-box-shadow: $top $right $button $left rgba(0,0,0,0.75);
+    -moz-box-shadow: $top $top $right $button $left rgba(0,0,0,0.75);
+    box-shadow: $top $right $button $left rgba(0,0,0,0.75);
+}

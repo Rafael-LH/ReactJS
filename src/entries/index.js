@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {render} from "react-dom";
 import '../sass/index.scss';
-import BadgeNew from '../pages/BadgeNew'
+import Badges from '../pages/Badges'
 
         // const jsx = (
         //     <div>
@@ -11,6 +11,6 @@ import BadgeNew from '../pages/BadgeNew'
         // )
 
 render(
-    <BadgeNew />,
+    <Badges />,
     document.getElementById('app')
 )
