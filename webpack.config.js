@@ -25,8 +25,8 @@ module.exports = env => {
             filename: 'bundle.js'
         },
         devServer:{
-            // contentBase: path.join(__dirname, './src/entries/'),
-            // compress: true,
+            contentBase: path.join(__dirname, '/'),
+            compress: true,
             port: 9000
         },
         module:{

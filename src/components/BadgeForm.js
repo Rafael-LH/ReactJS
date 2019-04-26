@@ -47,7 +47,7 @@ import BadgeNew from '../pages/BadgeNew';
                     <div>
                         <h1>New Attendant</h1>
                         <form>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>First Name</label>
                                 <input 
                                     onChange={onChange}
@@ -58,7 +58,7 @@ import BadgeNew from '../pages/BadgeNew';
                                     placeholder="First Name" />
                             </div>
 
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Last Name</label>
                                 <input 
                                     onChange={onChange}
@@ -69,7 +69,7 @@ import BadgeNew from '../pages/BadgeNew';
                                     placeholder="Last Name" />
                             </div>
 
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Email</label>
                                 <input 
                                     onChange={onChange}
@@ -80,7 +80,7 @@ import BadgeNew from '../pages/BadgeNew';
                                     placeholder="Email" />
                             </div>
                             
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Job title</label>
                                 <input 
                                     onChange={onChange}
@@ -91,7 +91,7 @@ import BadgeNew from '../pages/BadgeNew';
                                     placeholder="Job title" />
                             </div>
 
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Twitter</label>
                                 <input 
                                     onChange={onChange}
