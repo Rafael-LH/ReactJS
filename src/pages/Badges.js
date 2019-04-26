@@ -15,7 +15,6 @@ import data from "../components/data.json"
                 render(){
                     return(
                         <div>
-                            <NavBar />
                             <div className="Badges">
                                 <div className="Badges__hero">
                                     <img className="img-fondo" src={stars} alt=""/>

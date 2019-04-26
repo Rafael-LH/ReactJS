@@ -68,7 +68,6 @@ import BadgeForm from '../components/BadgeForm'
                     }
                     return(
                       <div>
-                          <NavBar/>
                           <div className="BadgeNew__hero">
                              <img className="img-fluid" src={header} alt="Logo" />
                           </div>    
