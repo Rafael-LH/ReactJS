@@ -18,13 +18,17 @@ module.exports = env => {
 
         mode: mode,
         entry: {
-            index: path.resolve(__dirname, './src/entries/index.js')
+            index: path.resolve(__dirname, './src/index.js')
         },
         output:{
             path: path.resolve(__dirname, 'dist'),
             filename: 'bundle.js'
         },
-
+        devServer:{
+            // contentBase: path.join(__dirname, './src/entries/'),
+            // compress: true,
+            port: 9000
+        },
         module:{
             rules:[
 
