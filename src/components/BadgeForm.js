@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component, Fragment} from 'react'
 import BadgeNew from '../pages/BadgeNew';
 
 
@@ -44,7 +44,8 @@ import BadgeNew from '../pages/BadgeNew';
                 let {firstName, lastName, email, jobTitle, twitter} = this.props.formValues
 
                 return(
-                    <div>
+                    //con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
+                    <Fragment>
                         <h1>New Attendant</h1>
                         <form>
                             <div className="form-group">
@@ -104,7 +105,7 @@ import BadgeNew from '../pages/BadgeNew';
 
                             <button onClick={handleClick} className="btn btn-info">Save</button>
                         </form>
-                    </div>
+                    </Fragment>
                 )
             }
     }

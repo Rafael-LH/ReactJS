@@ -15,7 +15,6 @@ module.exports = env => {
     }
 
     return{
-
         mode: mode,
         entry: {
             index: path.resolve(__dirname, './src/index.js')

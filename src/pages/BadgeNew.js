@@ -1,8 +1,9 @@
-import React,{Component} from 'react'
-import NavBar from '../components/NavBar' 
+import React,{Component, Fragment} from 'react'
 import header from "../images/badge-header.svg";
 import Badge from '../components/Badge'
 import BadgeForm from '../components/BadgeForm'
+import stars from '../images/stars.svg'
+
 
 
     export default class BadgeNew extends Component{
@@ -67,25 +68,31 @@ import BadgeForm from '../components/BadgeForm'
                         github: "https://github.com/Rafael-LH?tab=repositories"
                     }
                     return(
-                      <div>
-                          <div className="BadgeNew__hero">
-                             <img className="img-fluid" src={header} alt="Logo" />
-                          </div>    
+                    //   con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
+                      <Fragment>
+                         <div className="Badges">
+                                <div className="Badges__hero">
+                                    <img className="img-fondo" src={stars} alt=""/>
+                                    <div className="Badges__container">
+                                        <img className="Badges_conf-logo" src={header} alt="Conf Logo"/>
+                                    </div>
+                                </div>
+                            </div>   
                           <div className="container">
                               <div className="row">
                                   <div className="col">
                                         <Badge data={data} />
                                   </div>
                                   <div className="col">
-                                        <BadgeForm 
-                                                onChange={this.handleChange}
-                                                formValues={this.state.form} 
-                                                handleClick={this.handleClick}  
-                                                />
+                                    <BadgeForm 
+                                            onChange={this.handleChange}
+                                            formValues={this.state.form} 
+                                            handleClick={this.handleClick}  
+                                            />
                                   </div>
                               </div>
                           </div>  
-                      </div>  
+                      </Fragment>  
                     )
                 }
     }

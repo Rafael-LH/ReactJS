@@ -1,20 +1,17 @@
 import React, {Component} from "react"
 import {Link} from 'react-router-dom'
 
-import NavBar from '../components/NavBar'
 import confLogo from '../images/badge-header.svg'
 import stars from '../images/stars.svg'
 import BadgesList from '../components/BadgesList'
 import data from "../components/data.json"
-
-
-
 
         export default class Badges extends Component{
 
                 render(){
                     return(
                         <div>
+                            {/* este div de badges se repite en este componente y BadgesNew */}
                             <div className="Badges">
                                 <div className="Badges__hero">
                                     <img className="img-fondo" src={stars} alt=""/>
