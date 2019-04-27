@@ -9,7 +9,7 @@ import stars from '../images/stars.svg'
     export default class BadgeNew extends Component{
 
             //  algo que es muy interesante y  que le da el nombre a react es que es reactivo reaccionar 
-            //  cada vez hay un cambio en el state o en los props que recibe un componente se vuelve a renderisar todo el componente
+            //  cada vez hay un cambio en el state o en los props que recibe un componente se vuelve a renderizar todo el componente
             //  y todos sus decendientes
 
             // declaramos nuestro estado del componente
