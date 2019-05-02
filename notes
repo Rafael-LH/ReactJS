@@ -51,3 +51,9 @@ Desmontaje:
 
 Nos da la oportunidad de hacer limpieza de nuestro componente.
 Se llama un método: componentWillUnmount.
+
+
+
+NOTA 
+   en el archivo BadgesExample tengo como es que funcionan las funciones de React js como   
+   componentDidMount, componentDidUpdate, componentWillUnmount etc.
