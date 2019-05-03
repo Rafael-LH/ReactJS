@@ -53,3 +53,35 @@
       height: 100vh;
       align-items: center;
   }
+
+  .container-info, .container-error{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  }
+  .container-info span{
+    font-size: 1.3em;
+    margin-right: 4px;
+  }
+  .container-info a{
+    font-size: 1.3em;
+  }
+
+  // estilos pagina de carga y error
+  .PageLoading, .PageError {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  // estilos pagina de error
+  .PageError span{
+      font-weight: bold;
+      font-size: 1.5em;
+      color: red;
+      margin-left: 7px;
+  }

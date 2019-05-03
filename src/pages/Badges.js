@@ -5,7 +5,9 @@ import confLogo from '../images/badge-header.svg'
 import stars from '../images/stars.svg'
 import BadgesList from '../components/BadgesList'
 // import data from "../components/data.json"
-import Api from '../api'
+import api from '../api'
+import PageLoading from '../components/PageLoading'
+import PageError from '../components/PageError'
 
         export default class Badges extends Component{
 
@@ -28,24 +30,26 @@ import Api from '../api'
                 // componentDidMount de esta manera aseguramos que nuestro componente ya se rendereo y ya esta listo para 
                 // recibir datos
                 componentDidMount(){
-                    this.dataFetch()
+                    this.fetchData()
                 }
 
                 fetchData = async () => {
                         this.setState({
                             loading: true,
-                            error: null
+                            error: false
                         })
                         
                         try {
-                            const data = await Api.badges.list()
+                            // estos datos me los traigo de un archivo que se llama api.js el cual esta en src
+                            const responseData = await api.badges.list()
                             this.setState({
-                                    data: data,
+                                    data: responseData,
                                     loading: false,
                                }) 
-                        } catch (error) {
+                        } catch (err) {
                             this.setState({
-                                      error: `Ha ocurrido algun error ${err}` ,
+                                      error: true,
+                                      messageErr: `Ha ocurrido algun problema ${err}`,
                                       loading: false 
                                 })
                         }
@@ -55,9 +59,15 @@ import Api from '../api'
                     console.log('2 render()')
 
                      if(this.state.loading){
-                        return 'Loading...'
+                        return (
+                           <PageLoading />
+                        )
                      }  
-
+                     if(this.state.error){
+                        return (
+                            <PageError error={this.state.messageErr}/>
+                        )
+                     } 
                     return(
                         <Fragment>
                             {/* este div de badges se repite en este componente y BadgesNew */}

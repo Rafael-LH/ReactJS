@@ -57,3 +57,7 @@ Se llama un método: componentWillUnmount.
 NOTA 
    en el archivo BadgesExample tengo como es que funcionan las funciones de React js como   
    componentDidMount, componentDidUpdate, componentWillUnmount etc.
+
+NOTA
+    Para desplegar emojis es con ctrl + command + space (mac)    
+    Para desplegar emojis es con  Win + punto (Windows)    
