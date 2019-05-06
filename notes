@@ -61,3 +61,8 @@ NOTA
 NOTA
     Para desplegar emojis es con ctrl + command + space (mac)    
     Para desplegar emojis es con  Win + punto (Windows)    
+
+NOTA
+    Polling consiste en que cada cierto tiempo que es definido por nosotros se buscan los datos
+    y se actualizan automáticamente. Esto se hará constantemente hasta que el usuario se vaya de la página.
+    video => https://platzi.com/clases/1548-react/18716-actualizaciones-automaticas1131/     
