@@ -40,14 +40,14 @@ import BadgeNew from '../pages/BadgeNew';
                 // esto se le llama componentes controlados, ya que los valores me los manda mi componente BadgeNew
                 // de ese componente estoy recibiendo todo
                 
-                let {onChange, handleClick} = this.props
+                let {onChange, handleClick, onSubmit} = this.props
                 let {firstName, lastName, email, jobTitle, twitter} = this.props.formValues
 
                 return(
                     //con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
                     <Fragment>
                         <h1>New Attendant</h1>
-                        <form>
+                        <form onSubmit={onSubmit} >
                             <div className="form-group">
                                 <label>First Name</label>
                                 <input 
@@ -103,7 +103,7 @@ import BadgeNew from '../pages/BadgeNew';
                                     placeholder="Twitter" />
                             </div>
 
-                            <button onClick={handleClick} className="btn btn-info">Save</button>
+                            <button onClick={handleClick} className="btn btn-info mb-4">Save</button>
                         </form>
                     </Fragment>
                 )

@@ -25,8 +25,8 @@ const api = {
   badges: {
     list() {
       // return [] //prueba en caso de que no haya nada de datos
-      throw new Error('Not Found') //prueba en caso de que ocurra algun error
-      // return callApi('/badges'); //datos de nuestro badges
+      // throw new Error('Not Found') //prueba en caso de que ocurra algun error
+      return callApi('/badges'); //datos de nuestro badges
     },
     create(badge) {
       return callApi(`/badges`, {

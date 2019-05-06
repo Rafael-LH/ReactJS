@@ -1,10 +1,15 @@
+// Dependencies
 import React,{Component, Fragment} from 'react'
-import header from "../images/badge-header.svg";
+import md5 from 'md5'
+
+// Components
+import header from "../images/platziconf-logo.svg";
 import Badge from '../components/Badge'
 import BadgeForm from '../components/BadgeForm'
 import stars from '../images/stars.svg'
-
-
+import api from '../api'
+import PageLoading from '../components/PageLoading'
+import PageError from '../components/PageError'
 
     export default class BadgeNew extends Component{
 
@@ -19,8 +24,13 @@ import stars from '../images/stars.svg'
                         lastName :'',
                         email :'',
                         jobTitle :'',
-                        twitter :''
+                        twitter :'',
+                        github: "https://github.com/Rafael-LH?tab=repositories",
+                        avatarUrl: ''
                     },
+                    error: false,
+                    messageErr: '',
+                    loading: false
                 }
 
                 handleChange = e => {
@@ -47,26 +57,57 @@ import stars from '../images/stars.svg'
                     })
                 }
 
-                handleClick = e =>{
-                    e.preventDefault()
-                    let {firstName, lastName} = this.state.form
-                    let string = /^([a-z]+\s?)*$/i
+                // handleClick = e =>{
+                //     e.preventDefault()
+                //     let {firstName, lastName} = this.state.form
+                //     let string = /^([a-z]+\s?)*$/i
 
-                    alert( (!string.test(firstName) ) ? 'El campo first Name solo acepta caracteres' : 'registrado' )
+                //     alert( (!string.test(firstName) ) ? 'El campo first Name solo acepta caracteres' : 'registrado' )
 
-                }
+                // }
+                handleSubmit = e => {
+                      e.preventDefault()
+
+                       let avatar = document.getElementById("avatarUrl").getAttribute('src')
+
+                      this.setState({
+                          loading: true,
+                             form:{
+                                 ...this.state.form,
+                                 avatarUrl: avatar
+                            },
+                      })
+
+                      setTimeout(async () => {
+                        try {
+                                await api.badges.create(this.state.form)
+                                this.setState({
+                                    loading: false,  
+                                })
+                            } catch (error) {
+                                this.setState({
+                                    loading: false,    
+                                    error: true,
+                                    messageErr: `Ha ocurrido algun problema ${err}`,
+                                })
+                            }
+                        }, 1000)
+                    } 
 
                 render(){
-                    let { firstName, lastName, email, jobTitle, twitter} = this.state.form
-                    
-                    let data = {
-                        firstName: firstName,
-                        lastName: lastName,
-                        jobTitle: jobTitle,
-                        twitter : twitter,
-                        email: email,
-                        github: "https://github.com/Rafael-LH?tab=repositories"
-                    }
+
+                    // manejando el loading
+                    if(this.state.loading){
+                        return (
+                           <PageLoading />
+                        )
+                     }  
+                    // manejando el error
+                    if(this.state.error){
+                        return (
+                            <PageError error={this.state.messageErr}/>
+                        )
+                     }
                     return(
                     //   con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
                       <Fragment>
@@ -81,14 +122,15 @@ import stars from '../images/stars.svg'
                           <div className="container">
                               <div className="row">
                                   <div className="col">
-                                        <Badge data={data} />
+                                        <Badge data={this.state.form} />
                                   </div>
                                   <div className="col">
-                                    <BadgeForm 
-                                            onChange={this.handleChange}
-                                            formValues={this.state.form} 
-                                            handleClick={this.handleClick}  
-                                            />
+                                        <BadgeForm 
+                                                onChange={this.handleChange}
+                                                formValues={this.state.form} 
+                                                //handleClick={this.handleClick} 
+                                                onSubmit={this.handleSubmit} 
+                                                />
                                   </div>
                               </div>
                           </div>  
