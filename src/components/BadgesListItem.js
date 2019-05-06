@@ -10,8 +10,11 @@ import {Link} from 'react-router-dom'
                 <span><b>{props.badge.firstName}</b></span>
                 <span className="twitter"><i className="fab fa-twitter twitter"></i>@{props.badge.twitter}</span>
                 <span>{props.badge.jobTitle}</span>
-                <div className="container-update">
-                    <Link to={`/badges/${props.badge.id}/edit/`} className='btn btn-info'>
+                <div className="container-update mt-4">
+                    <Link to={`/badges/${props.badge.id}`} >
+                            Detalles
+                    </Link>
+                    <Link to={`/badges/${props.badge.id}/edit/`} >
                             Actualizar
                     </Link>
                 </div> 

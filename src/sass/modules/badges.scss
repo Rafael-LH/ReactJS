@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    // background: url('../../images/stars.svg'), #1B1B25;
-    // padding: 2rem 0;
+    overflow: hidden;
+    height: 250px;
     margin-bottom: 1rem;
     .img-fondo{
         background: #1B1B25; 
-        height: 200px;
+        height: 900px;
         width: 100%;
     }
 }
@@ -16,15 +16,19 @@
 }
 .Badges__hero > .Badges__container{
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
         position: absolute;
-        margin-top: 45px;
+        margin-top: 68px;
 }
 .Badges__container{
         width: 100%;
         max-width: 580px;
         margin: 0 auto;
+      h1{
+          color: #fff;
+          margin-left: 40px;
+      }  
 }
 .Badges_conf-logo{
            margin-bottom: 2rem; 
@@ -66,9 +70,10 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-end;
+        justify-content: space-between;
         a{
-            font-size: 0.8em !important;    
-            padding: 2px 5px 3px 5px;
+            font-size: 1em;    
+            text-decoration: none;
+            font-weight: bold;
         }
 }

@@ -10,6 +10,7 @@ import BadgeNew from '../pages/BadgeNew'
 import NotFound from "../pages/NotFound"
 import Home from "../pages/Home"
 import BadgeEdit from "../pages/BadgeEdit"
+import BadgeDetails from "../pages/BadgeDetails"
 
 
 // Los componentes funcionales se utilizan cuando no vamos a crear state estados de un componente
@@ -35,6 +36,7 @@ import BadgeEdit from "../pages/BadgeEdit"
                                  en espesifico ese badge    */}
                             <Route exact path="/badges/:badgeId/edit/" component={BadgeEdit} />
 
+                            <Route exact path="/badges/:badgeId" component={BadgeDetails} />
 
                              {/* componente que se rendeara en caso de que el usuario quiera acceder a una url
                               que no existe dentro de nuestra app*/}
