@@ -46,26 +46,6 @@
       "avatarUrl": "https://www.gravatar.com/avatar/00e35de53a06a655fe5b6ac8b96bdb84?d=identicon"
     },
     {
-      "firstName": "Rafael",
-      "lastName": "Rafael",
-      "email": "rafa@rafa.com",
-      "jobTitle": "Enginner",
-      "twitter": "rafael-lh",
-      "github": "https://github.com/Rafael-LH?tab=repositories",
-      "avatarUrl": "",
-      "id": "OPcZbRv"
-    },
-    {
-      "firstName": "rafael",
-      "lastName": "rafael",
-      "email": "rafael@rafael.com",
-      "jobTitle": "enginner",
-      "twitter": "rafael-lh",
-      "github": "https://github.com/Rafael-LH?tab=repositories",
-      "avatarUrl": "",
-      "id": "hNXznRC"
-    },
-    {
       "firstName": "Richard",
       "lastName": "koufman",
       "email": "richardbkoufman@gmail.com",
@@ -74,16 +54,6 @@
       "github": "https://github.com/Rafael-LH?tab=repositories",
       "avatarUrl": "https://gravatar.com/avatar/10c53b7ed2123e156f9091f8a3dd7112?id=identicon",
       "id": "OLSqICc"
-    },
-    {
-      "firstName": "ddas",
-      "lastName": "sdasdas",
-      "email": "richardbkaufman@gmail.com",
-      "jobTitle": "enginner",
-      "twitter": "dasdsa",
-      "github": "https://github.com/Rafael-LH?tab=repositories",
-      "avatarUrl": "https://gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?id=identicon",
-      "id": "lCf5d08"
     }
   ]
 }

@@ -40,7 +40,7 @@ import BadgeNew from '../pages/BadgeNew';
                 // esto se le llama componentes controlados, ya que los valores me los manda mi componente BadgeNew
                 // de ese componente estoy recibiendo todo
                 
-                let {onChange, handleClick, onSubmit} = this.props
+                let {onChange, handleClick, onSubmit, error, messageErr} = this.props
                 let {firstName, lastName, email, jobTitle, twitter} = this.props.formValues
 
                 return(
@@ -104,6 +104,12 @@ import BadgeNew from '../pages/BadgeNew';
                             </div>
 
                             <button onClick={handleClick} className="btn btn-info mb-4">Save</button>
+                            {
+                                error &&
+                                <div className="container-danger">
+                                    <p className="btn btn-danger">{messageErr}</p>
+                                </div>
+                            }
                         </form>
                     </Fragment>
                 )

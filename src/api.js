@@ -29,6 +29,7 @@ const api = {
       return callApi('/badges'); //datos de nuestro badges
     },
     create(badge) {
+      // throw new Error('500 Server not found') //prueba en caso de que ocurra algun error
       return callApi(`/badges`, {
         method: 'POST',
         body: JSON.stringify(badge),

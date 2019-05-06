@@ -30,7 +30,7 @@ import PageError from '../components/PageError'
                     },
                     error: false,
                     messageErr: '',
-                    loading: false
+                    loading: false,
                 }
 
                 handleChange = e => {
@@ -65,34 +65,65 @@ import PageError from '../components/PageError'
                 //     alert( (!string.test(firstName) ) ? 'El campo first Name solo acepta caracteres' : 'registrado' )
 
                 // }
+                validaForm(){
+                     
+
+                }
                 handleSubmit = e => {
-                      e.preventDefault()
+                     e.preventDefault()
 
-                       let avatar = document.getElementById("avatarUrl").getAttribute('src')
+                     let avatar = document.getElementById("avatarUrl").getAttribute('src')
 
-                      this.setState({
-                          loading: true,
-                             form:{
-                                 ...this.state.form,
-                                 avatarUrl: avatar
-                            },
-                      })
+                     let {firstName, lastName, email, jobTitle, twitter } = this.state.form
+                     let validaString = /^([a-z]+\s?)*$/i
 
-                      setTimeout(async () => {
-                        try {
-                                await api.badges.create(this.state.form)
+                     this.setState({
+                        loading: true,
+                           form:{
+                               ...this.state.form,
+                               avatarUrl: avatar
+                          },
+                    })
+
+                    if(firstName !== '' && lastName !== '' && email !== '' && jobTitle !== '' && twitter !== ''){
+                            if(validaString.test(firstName) && validaString.test(lastName) ){
+                                
+                            setTimeout(async () => {
+                                try {
+                                        await api.badges.create(this.state.form)
+                                        this.setState({
+                                            loading: false,  
+                                        })
+                                        this.props.history.push('/badges/'); //aparte de location tambien existen match y location
+                                                //match
+                                                //location 
+
+                                    } catch (error) {
+                                        this.setState({
+                                            loading: false,    
+                                            error: true,
+                                            messageErr: `Ha ocurrido algun problema ${error}`,
+                                        })
+                                    }
+                                }, 1000)
+                            }else{
                                 this.setState({
-                                    loading: false,  
-                                })
-                            } catch (error) {
-                                this.setState({
-                                    loading: false,    
+                                    loading: false,
                                     error: true,
-                                    messageErr: `Ha ocurrido algun problema ${err}`,
+                                    messageErr: 'los campos de first name y last name solo aceptan caracteres. no numeros'
                                 })
+
                             }
-                        }, 1000)
-                    } 
+
+                     }else{
+                         this.setState({
+                                loading: false,
+                                error: true,
+                                messageErr: 'No puedes dejar valores nulos'
+                         })
+                     }
+                                            
+                } 
 
                 render(){
 
@@ -102,12 +133,6 @@ import PageError from '../components/PageError'
                            <PageLoading />
                         )
                      }  
-                    // manejando el error
-                    if(this.state.error){
-                        return (
-                            <PageError error={this.state.messageErr}/>
-                        )
-                     }
                     return(
                     //   con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
                       <Fragment>
@@ -130,6 +155,8 @@ import PageError from '../components/PageError'
                                                 formValues={this.state.form} 
                                                 //handleClick={this.handleClick} 
                                                 onSubmit={this.handleSubmit} 
+                                                error={this.state.error}
+                                                messageErr={this.state.messageErr}
                                                 />
                                   </div>
                               </div>
