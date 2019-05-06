@@ -1,5 +1,4 @@
 import React,{Component, Fragment} from 'react'
-import BadgeNew from '../pages/BadgeNew';
 
 
     export default class BadgeForm extends Component{
@@ -46,7 +45,6 @@ import BadgeNew from '../pages/BadgeNew';
                 return(
                     //con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
                     <Fragment>
-                        <h1>New Attendant</h1>
                         <form onSubmit={onSubmit} >
                             <div className="form-group">
                                 <label>First Name</label>

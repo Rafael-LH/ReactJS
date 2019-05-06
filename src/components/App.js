@@ -1,12 +1,15 @@
+//dependencies
 import React, {Component} from "react";
 // react-router-dom tiene que estar siempre despues del componente de react, si no marcaria error
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+//components 
 import Layout from "./Layout"
 import Badges from "../pages/Badges"
 import BadgeNew from '../pages/BadgeNew'
 import NotFound from "../pages/NotFound"
 import Home from "../pages/Home"
+import BadgeEdit from "../pages/BadgeEdit"
 
 
 // Los componentes funcionales se utilizan cuando no vamos a crear state estados de un componente
@@ -27,6 +30,11 @@ import Home from "../pages/Home"
                                 que es / si no marcaria error porque no encontraria como un
                                 entry point para de ahi arrancar */}
                             <Route exact path="/badges/new/" component={BadgeNew} />
+
+                             {/* aqui creo una variable :badgeId la cual voy a recibir un valor por get para poder actualizar
+                                 en espesifico ese badge    */}
+                            <Route exact path="/badges/:badgeId/edit/" component={BadgeEdit} />
+
 
                              {/* componente que se rendeara en caso de que el usuario quiera acceder a una url
                               que no existe dentro de nuestra app*/}

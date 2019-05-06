@@ -54,10 +54,21 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 15px;
+    width: 100%;
     span{
         width: 100%;
     }
 }
 .twitter{
     color: deepskyblue;
+}
+.container-update{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        a{
+            font-size: 0.8em !important;    
+            padding: 2px 5px 3px 5px;
+        }
 }

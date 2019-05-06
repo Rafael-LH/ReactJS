@@ -1,6 +1,5 @@
 // Dependencies
 import React,{Component, Fragment} from 'react'
-import md5 from 'md5'
 
 // Components
 import header from "../images/platziconf-logo.svg";
@@ -9,9 +8,10 @@ import BadgeForm from '../components/BadgeForm'
 import stars from '../images/stars.svg'
 import api from '../api'
 import PageLoading from '../components/PageLoading'
-import PageError from '../components/PageError'
 
-    export default class BadgeNew extends Component{
+
+
+    export default class BadgeEdit extends Component{
 
             //  algo que es muy interesante y  que le da el nombre a react es que es reactivo reaccionar 
             //  cada vez hay un cambio en el state o en los props que recibe un componente se vuelve a renderizar todo el componente
@@ -30,7 +30,7 @@ import PageError from '../components/PageError'
                     },
                     error: false,
                     messageErr: '',
-                    loading: false,
+                    loading: true,
                 }
 
                 handleChange = e => {
@@ -65,6 +65,38 @@ import PageError from '../components/PageError'
                 //     alert( (!string.test(firstName) ) ? 'El campo first Name solo acepta caracteres' : 'registrado' )
 
                 // }
+                componentDidMount(){
+                    this.fetchData()
+                }
+                fetchData = async e => {
+                    this.setState({
+                          loading: true,
+                          error: false  
+                    })
+
+                    try {
+                        // con el metodo read traemos de nuestra api los datos dependiendo del id que se pasemos, el cual 
+                        // estamos obteniendo por get
+                        let data = await api.badges.read(
+                            // Gracias a react router podemos acceder a valores por medio de get con match.params. seguido del nombre
+                            // de la varible que cacharemos por get que es badgeId, quedaria match.params.badgeId
+                                this.props.match.params.badgeId
+                            )
+
+                        this.setState({
+                            form: data,
+                            loading: false,
+                            error: false  
+                      })
+                    } catch (error) {
+                        this.setState({
+                            loading: false,
+                            error: true,
+                            messageErr: `Ha ocurrido algun problema ${error}`  
+                      })
+                    }
+                }
+
                 handleSubmit = e => {
                      e.preventDefault()
 
@@ -86,7 +118,14 @@ import PageError from '../components/PageError'
                                 
                             setTimeout(async () => {
                                 try {
-                                        await api.badges.create(this.state.form)
+                                        await api.badges.update(
+                                            // el metodo update nos pide dos parametro 
+                                            // 1- el id que estoy recibiendo por get
+                                            // 2- la data que esta en mi state form
+
+                                            this.props.match.params.badgeId, //id
+                                            this.state.form //data
+                                        )
                                         this.setState({
                                             loading: false,  
                                         })
@@ -146,7 +185,7 @@ import PageError from '../components/PageError'
                                         <Badge data={this.state.form} />
                                   </div>
                                   <div className="col">
-                                        <h1>New Attendant</h1>
+                                  <h1>New Edit</h1>
                                         <BadgeForm 
                                                 onChange={this.handleChange}
                                                 formValues={this.state.form} 

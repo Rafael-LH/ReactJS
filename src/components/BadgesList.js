@@ -1,6 +1,10 @@
 import React,{Component} from "react";
 import {Link} from 'react-router-dom'
 
+//components 
+import BadgesListItem from './BadgesListItem'
+
+
 export default class BadgesList extends Component{
             render(){
                 
@@ -22,14 +26,7 @@ export default class BadgesList extends Component{
                                 this.props.data.map(badge => {
                                     return(
                                         <li key={badge.id} className="container-li">
-                                            <div>
-                                                <img className="img-avatar" src={badge.avatarUrl} alt=""/>
-                                            </div>  
-                                            <div className="sub_contenedor_info">
-                                                <span><b>{badge.firstName}</b></span>
-                                                <span className="twitter"><i className="fab fa-twitter twitter"></i>@{badge.twitter}</span>
-                                                <span>{badge.jobTitle}</span>
-                                            </div>  
+                                            <BadgesListItem badge={badge} />
                                         </li>
                                     )
                                 })

@@ -58,7 +58,7 @@ import PageError from '../components/PageError'
                 render(){
                     console.log('2 render()')
 
-                     if(this.state.loading){
+                    if(this.state.loading){
                         return (
                            <PageLoading />
                         )
