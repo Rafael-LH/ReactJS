@@ -1,11 +1,11 @@
 import React,{Component, Fragment} from 'react'
-import {createPortal} from 'react-dom'
 import {Link} from 'react-router-dom'
 //img
 import stars from '../images/stars.svg'
 import confLogo from '../images/platziconf-logo.svg'
 //components
 import Badge from '../components/Badge'
+import Modal from '../components/Modal'
 
 // Componente de la UI(User interface)
 // cuando nuestro componente no tiene logica no es necesario de crear una clase entonces aqui entran los 
@@ -41,14 +41,14 @@ import Badge from '../components/Badge'
                                     </Link>
                                 </div>
                                 <div>
-                                    <button className="btn btn-danger">Delete</button>
-                                        {/* createPortal(que queremos renderizar, donde lo queremos renderizar) */}
-                                    {
-                                        createPortal(
-                                            <h1>Hola Soy un modal</h1>,
-                                            document.getElementById('modal')
-                                        )
-                                    }
+                                    <button className="btn btn-danger" onClick={props.onOpenModal}>Delete</button>
+                                        <Modal isOpen={props.modalListOpen} onCloseModal={props.onCloseModal} >
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam fugiat officiis
+                                            sequi sint inventore dignissimos excepturi
+                                            repellendus possimus ut voluptates quisquam illum expedita assumenda, minus aspernatur eos,
+                                            nisi totam voluptatum.
+                                        </Modal>
+
                                 </div>
                             </div>
                         </div>

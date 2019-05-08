@@ -12,6 +12,7 @@ import BadgeDetails from './BadgeDetails'
                     error: false,
                     messageErr: '',
                     loading: true,
+                    modalListOpen: false
                 }
 
             componentDidMount(){
@@ -45,8 +46,17 @@ import BadgeDetails from './BadgeDetails'
                             loading: false,
                         })
                     }
+            }//cierre fetchdata
+            handleCloseModal = e =>{
+                this.setState({
+                    modalListOpen: false
+                })
             }
-
+            handleOpenModal = e =>{
+                this.setState({
+                    modalListOpen: true
+                })
+            }
             render(){
                     if(this.state.loading){
                         return(
@@ -62,7 +72,11 @@ import BadgeDetails from './BadgeDetails'
                 //  let {firstName, lastName, id} = this.state.data
 
                 return(
-                    <BadgeDetails data={this.state.data}/>
+                    <BadgeDetails data={this.state.data}
+                                  modalListOpen={this.state.modalListOpen}  
+                                  onCloseModal={this.handleCloseModal}
+                                  onOpenModal={this.handleOpenModal}
+                                  />
                 )
             }
     }
