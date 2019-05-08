@@ -1,4 +1,5 @@
 import React,{Component, Fragment} from 'react'
+import {createPortal} from 'react-dom'
 import {Link} from 'react-router-dom'
 //img
 import stars from '../images/stars.svg'
@@ -41,6 +42,13 @@ import Badge from '../components/Badge'
                                 </div>
                                 <div>
                                     <button className="btn btn-danger">Delete</button>
+                                        {/* createPortal(que queremos renderizar, donde lo queremos renderizar) */}
+                                    {
+                                        createPortal(
+                                            <h1>Hola Soy un modal</h1>,
+                                            document.getElementById('modal')
+                                        )
+                                    }
                                 </div>
                             </div>
                         </div>
