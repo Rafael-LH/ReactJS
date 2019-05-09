@@ -57,6 +57,33 @@ import BadgeDetails from './BadgeDetails'
                     modalListOpen: true
                 })
             }
+            handleOnDeleteBadge = async e => {
+
+                    this.setState({
+                        loading: true,
+                        error: false
+                    })     
+
+                    try {
+                        // Gracias a react router podemos acceder a valores por medio de get con match.params. seguido del nombre
+                        // de la varible que cacharemos por get que es badgeId, quedaria match.params.badgeId
+                        await api.badges.remove(this.props.match.params.badgeId)
+
+                        this.setState({
+                            loading: false,
+                            error: false
+                        }) 
+
+                        this.props.history.push('/badges/')
+                        
+                    } catch (error) {
+                        this.setState({
+                            loading: false,
+                            error: true,
+                            messageErr: `Ha ocurrido algun problema ${error}`
+                        }) 
+                    }
+            }
             render(){
                     if(this.state.loading){
                         return(
@@ -76,6 +103,7 @@ import BadgeDetails from './BadgeDetails'
                                   modalListOpen={this.state.modalListOpen}  
                                   onCloseModal={this.handleCloseModal}
                                   onOpenModal={this.handleOpenModal}
+                                  onDeleteBadge={this.handleOnDeleteBadge}
                                   />
                 )
             }
