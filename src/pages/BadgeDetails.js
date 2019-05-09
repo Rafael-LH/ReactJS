@@ -1,4 +1,4 @@
-import React,{Component, Fragment} from 'react'
+import React,{Component, Fragment, useState} from 'react'
 import {Link} from 'react-router-dom'
 //img
 import stars from '../images/stars.svg'
@@ -11,8 +11,32 @@ import DeleteBadgeModal from '../components/DeleteBadgeModal'
 // cuando nuestro componente no tiene logica no es necesario de crear una clase entonces aqui entran los 
 // componentes funcionales, DUM component, componente presentacional, componente tonto, seria la vista del MVC
 
+// cuando queremos crear nuevas funciones para utilizar un hook custom, como regla el nombre de la funcion tiene que empezar con 
+// use seguido del nombre que le queremos dar a nuestra funcion
+
+   function useIncreaseCount(max){
+        // el count viene siendo state y setCount seria setState
+        const [count, setCount] = useState(0) // lo inicializamos en 0
+
+        if(count > 4){
+            setCount(0)    
+        }
+
+        return [count, setCount]
+    } 
+
  const BadgeDetails = props => {
-         
+    
+            //useState nos regresa un arreglo con dos posiciones, en este caso les puse de nombre count y setCount pero
+              //puede ser cualquiera      
+            // el [count, setCount] es parecido al state y setState
+            // le podemos dar un estado inicial, en este caso pusimos 0, no es necesario poner un estado inicial.
+            //aqui estariamos utilizando el hook predeterminado pero vamor a crear el nuestro con la funcion que tenemos de useIncreaseCount 
+            const [count, setCount] = useIncreaseCount(4) //useState(0) 
+
+
+
+
          //Destructuracion de objeto   
          let {firstName, lastName, id} = props.data
 
@@ -36,6 +60,11 @@ import DeleteBadgeModal from '../components/DeleteBadgeModal'
                             <h1>Actions</h1>
                             <div>
                                 <div>
+                                    <button className="btn btn-primary mr-4" onClick={() => {
+                                          setCount(count + 1)  
+                                    }}>
+                                          Increase count {count}  
+                                    </button>
                                     <Link to={`/badges/${id}/edit`} className="btn btn-info mb-4">
                                         Edit 
                                     </Link>

@@ -37,7 +37,8 @@ para que sean utilizadas. tambien se dice que es una variable de la clase.
 
 ***************************Ciclo de vida de un componente***************************
 
-Cuando React renderiza los componentes decimos que entran en escena, cuando su estado cambia o recibe unos props diferentes se actualizan y cuando cambiamos de página se dice que se desmontan.
+Cuando React renderiza los componentes decimos que entran en escena,
+cuando su estado cambia o recibe unos props diferentes se actualizan y cuando cambiamos de página se dice que se desmontan.
 
 Montaje:
 
@@ -66,3 +67,9 @@ NOTA
     Polling consiste en que cada cierto tiempo que es definido por nosotros se buscan los datos
     y se actualizan automáticamente. Esto se hará constantemente hasta que el usuario se vaya de la página.
     video => https://platzi.com/clases/1548-react/18716-actualizaciones-automaticas1131/     
+
+NOTA
+    componentes Controladores tambien conocidos como smart components y componentes funcionales
+    o tambien conocidos como componente presentacional porque solo se encargara de mostrar
+    la informacion por pantalla mientras el smart component se encargara de la logica de obtener
+    y manejar los datos para pasarlos al componente funcional

@@ -1,6 +1,5 @@
 // Dependencies
 import React,{Component, Fragment} from 'react'
-import md5 from 'md5'
 
 // Components
 import header from "../images/platziconf-logo.svg";
@@ -9,7 +8,6 @@ import BadgeForm from '../components/BadgeForm'
 import stars from '../images/stars.svg'
 import api from '../api'
 import PageLoading from '../components/PageLoading'
-import PageError from '../components/PageError'
 
     export default class BadgeNew extends Component{
 
