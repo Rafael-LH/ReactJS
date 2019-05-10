@@ -8,6 +8,7 @@ import BadgesList from '../components/BadgesList'
 import api from '../api'
 import PageLoading from '../components/PageLoading'
 import PageError from '../components/PageError'
+import SubNavBar from '../components/SubNavBar'
 
         export default class Badges extends Component{
 
@@ -70,15 +71,7 @@ import PageError from '../components/PageError'
                      } 
                     return(
                         <Fragment>
-                            {/* este div de badges se repite en este componente y BadgesNew */}
-                            <div className="Badges">
-                                <div className="Badges__hero">
-                                    <img className="img-fondo" src={stars} alt=""/>
-                                    <div className="Badges__container">
-                                        <img className="Badges_conf-logo" src={confLogo} alt="Conf Logo"/>
-                                    </div>
-                                </div>
-                            </div>
+                            <SubNavBar stars={stars} confLogo={confLogo} />
                             <div className="Badges__container">
                                 <div className="Badges__buttons">
                                     {/* cuando queremos poner un boton para cambiar de una pagina a otra

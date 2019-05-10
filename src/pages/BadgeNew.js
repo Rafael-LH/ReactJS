@@ -8,6 +8,7 @@ import BadgeForm from '../components/BadgeForm'
 import stars from '../images/stars.svg'
 import api from '../api'
 import PageLoading from '../components/PageLoading'
+import SubNavBar from '../components/SubNavBar'
 
     export default class BadgeNew extends Component{
 
@@ -130,14 +131,7 @@ import PageLoading from '../components/PageLoading'
                     return(
                     //   con React Fragment lo que hacemos es no escribir div innecesarios solo para poder renderear mas de una cosa   
                       <Fragment>
-                         <div className="Badges">
-                                <div className="Badges__hero">
-                                    <img className="img-fondo" src={stars} alt=""/>
-                                    <div className="Badges__container">
-                                        <img className="Badges_conf-logo" src={header} alt="Conf Logo"/>
-                                    </div>
-                                </div>
-                            </div>   
+                          <SubNavBar stars={stars} confLogo={header} />
                           <div className="container">
                               <div className="row">
                                   <div className="col">

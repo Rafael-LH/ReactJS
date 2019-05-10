@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
                 <img className="img-avatar" src={props.badge.avatarUrl} alt=""/>
             </div>  
             <div className="sub_contenedor_info">
-                <span><b>{props.badge.firstName}</b></span>
+                <span><b>{props.badge.firstName} {props.badge.lastName}</b></span>
                 <span className="twitter"><i className="fab fa-twitter twitter"></i>@{props.badge.twitter}</span>
                 <span>{props.badge.jobTitle}</span>
                 <div className="container-update mt-4">

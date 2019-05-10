@@ -60,11 +60,13 @@ import DeleteBadgeModal from '../components/DeleteBadgeModal'
                             <h1>Actions</h1>
                             <div>
                                 <div>
-                                    <button className="btn btn-primary mr-4" onClick={() => {
+                                    {/* quitar el comentario del siguiente boton para ver el ejemplo
+                                    de los Hooks */}
+                                    {/* <button className="btn btn-primary mr-4" onClick={() => {
                                           setCount(count + 1)  
                                     }}>
                                           Increase count {count}  
-                                    </button>
+                                    </button> */}
                                     <Link to={`/badges/${id}/edit`} className="btn btn-info mb-4">
                                         Edit 
                                     </Link>
